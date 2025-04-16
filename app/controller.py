@@ -28,8 +28,9 @@ def logistic_predict(title, content):
     prediction = model.predict(sample_vec)
     print("Tin thật" if prediction[0] == 1 else "Tin giả")
     label = int(prediction[0])
+    ac = float(prediction[0])
     
-    return {"label" : label, "accuracy": None}
+    return {"label" : label, "accuracy": ac}
 
 
 def random_forest_predict(title, content):
@@ -50,7 +51,7 @@ def random_forest_predict(title, content):
     prediction = model.predict(sample_vec)
     print("Tin thật" if prediction[0] == 1 else "Tin giả")
 
-    return {"label" : int(prediction[0]), "accuracy": None}
+    return {"label" : int(prediction[0]), "accuracy": float(prediction[0])}
 
 def lstm_predict(sample_title, sample_content):
     model = load_model('app/models/lstm/best_lstm_model.keras')
